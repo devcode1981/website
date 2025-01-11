@@ -15,6 +15,7 @@ Samples:
 
 * [Downloading build artifact (PowerShell - basic example)](/docs/api/samples/download-artifacts-ps/)
 * [Downloading build artifact (PowerShell - advanced example)](/docs/api/samples/download-artifacts-advanced-ps/)
+* [Downloading build artifact (ShellScript - advanced example)](/docs/api/samples/download-artifacts-sh/)
 
 ## Authentication
 
@@ -27,6 +28,9 @@ Token must be set in `Authorization` header of every request to AppVeyor REST AP
 Default content type is JSON, but if you need to return XML set `Accept` header:
 
     Accept: application/xml
+
+**Note.** If using a user-level API key (v2) which allows working with any account user has access to, then
+API calls must be prepended with /api/account/<account-name>/ in order to disambiguate which account is being accessed.
 
 ## Samples
 
@@ -78,4 +82,4 @@ export APPVEYOR_TOKEN="<your-api-token>"
 curl -H "Authorization: Bearer $APPVEYOR_TOKEN" -H "Content-Type: application/json" https://ci.appveyor.com/api/roles
 ```
 
-**Note.** If you plan to download artifacts with curl you should update curl up to 7.58.0. Otherwise curl wont be able to download artifacts due to CVE-2018-1000007.
+**Note.** If you plan to download artifacts with curl you should update curl up to 7.58.0. Otherwise curl won't be able to download artifacts due to CVE-2018-1000007.
